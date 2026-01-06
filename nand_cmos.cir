@@ -1,0 +1,22 @@
+* 2-input CMOS NAND gate (transistor level)
+
+* source
+VDD vdd 0 1
+
+* input
+VA a 0 1
+VB b 0 1
+
+* MOS model
+.model NMOS NMOS
+.model PMOS PMOS
+
+* NAND transistor
+M1 y a vdd vdd PMOS 
+M2 y b vdd vdd PMOS
+
+M3 y a n1 0 NMOS
+M4 n1 b 0 0 NMOS
+
+.op
+.end

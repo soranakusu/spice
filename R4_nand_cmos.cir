@@ -1,0 +1,38 @@
+* source
+VDD vdd 0 1
+
+* input
+VA a 0 0
+VB b 0 0
+VC c 0 0
+VD d 0 0
+
+* MOSFET model
+.model PMOS PMOS
+.model NMOS NMOS
+
+* A NAND B
+Mpa yab a vdd vdd PMOS
+Mpb yab b vdd vdd PMOS
+
+Mna yab a 0 0 NMOS
+Mnb yab b 0 0 NMOS
+
+* C NAND D
+Mpc ycd c vdd vdd PMOS
+Mpd ycd d vdd vdd PMOS
+
+Mnc ycd c 0 0 NMOS
+Mnd ycd d 0 0 NMOS
+
+* yab NAND ycd
+Mp1 y yab vdd vdd PMOS
+Mp2 y ycd vdd vdd PMOS
+
+Mn1 y yab 0 0 NMOS
+Mn2 y ycd 0 0 NMOS
+
+.op
+.end
+
+

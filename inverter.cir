@@ -1,0 +1,25 @@
+* nmos inverter
+
+* power supply
+Vdd vdd 0 3
+Vss vss 0 0
+
+* input
+Vin A 0 0
+
+* resistor
+R1 vdd YB 10k
+
+* nmos
+M1 YB A vss vss NMOS
+
+.model NMOS NMOS (VTO=1 KP=100u)
+
+.dc Vin 0 3 0.01
+
+.control
+run
+plot v(YB)
+.endc
+
+.end

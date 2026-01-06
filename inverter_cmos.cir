@@ -1,0 +1,27 @@
+* CMOS inverter
+
+* source
+Vdd vdd 0 3
+Vss vss 0 0
+
+* input
+Vin A 0 3
+
+* PMOS
+M1 YB A vdd vdd PMOS
+
+* NMOS
+M2 YB A vss vss NMOS
+
+.model NMOS NMOS(VTO=0.7 KP=200u) 
+.model PMOS PMOS(VTO=0.7 KP=200u) 
+
+.dc Vin 0 3 0.01
+
+.control
+run
+plot v(YB)
+.endc
+
+.end
+

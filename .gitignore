@@ -1,0 +1,5 @@
+*.raw
+*.out
+*.log
+
+*.swp
