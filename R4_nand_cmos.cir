@@ -7,30 +7,26 @@ VB b 0 0
 VC c 0 0
 VD d 0 0
 
+.dc VA 0 1 1 VB 0 1 1 VC 0 1 1 VD 0 1 1
+.print dc v(a) v(b) v(c) v(d) v(YB)
+
 * MOSFET model
-.model PMOS PMOS
-.model NMOS NMOS
+.model PMOS PMOS (LEVEL = 1 VTO = -0.5 KP = 50u)
+.model NMOS NMOS (LEVEL = 1 VTO = 0.5 KP = 100u)
 
 * A NAND B
-Mpa yab a vdd vdd PMOS
-Mpb yab b vdd vdd PMOS
+Mpa m_mid a vdd vdd PMOS
+Mpb m_mid b vdd vdd PMOS
 
-Mna yab a 0 0 NMOS
-Mnb yab b 0 0 NMOS
+Mna YB a n_mid 0 NMOS
+Mnb n_mid b 0 0 NMOS
 
 * C NAND D
-Mpc ycd c vdd vdd PMOS
-Mpd ycd d vdd vdd PMOS
+Mpc YB c m_mid vdd PMOS
+Mpd YB d vdd m_mid PMOS
 
-Mnc ycd c 0 0 NMOS
-Mnd ycd d 0 0 NMOS
-
-* yab NAND ycd
-Mp1 y yab vdd vdd PMOS
-Mp2 y ycd vdd vdd PMOS
-
-Mn1 y yab 0 0 NMOS
-Mn2 y ycd 0 0 NMOS
+Mnc YB c n_mid 0 NMOS
+Mnd n_mid d 0 0 NMOS
 
 .op
 .end
