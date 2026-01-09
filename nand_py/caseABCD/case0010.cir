@@ -4,7 +4,7 @@ VDD vdd 0 1
 * input
 VA a 0 dc 0
 VB b 0 dc 0
-VC c 0 dc 0
+VC c 0 dc 1
 VD d 0 dc 0
 
 
@@ -28,8 +28,8 @@ Mnd n_mid d 0 0 NMOS
 
 .control
 
-dc VA 0 1 1
-print v(a) v(b) v(c) v(d) v(YB)
+op
+print v(YB)
 
 .endc
 

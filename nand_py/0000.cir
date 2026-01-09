@@ -28,8 +28,8 @@ Mnd n_mid d 0 0 NMOS
 
 .control
 
-dc VA 0 1 1
-print v(a) v(b) v(c) v(d) v(YB)
+op
+print v(YB)
 
 .endc
 

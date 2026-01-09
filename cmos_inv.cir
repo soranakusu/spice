@@ -1,0 +1,29 @@
+* successfully done *
+
+**** circuit ****
+Mn1 t2 t1 0 0 nm
+
+Mp1 t2 t1 t3 t3 pm
+
+**** power supply ****
+Vdd t3 0 dc 5
+
+Vin t1 0 dc 5
+
+**** MOSFET model ****
+.model nm nmos
+
+.model pm pmos
+
+**** control ****
+
+.control
+
+dc Vin 0 5 0.2
+plot v(t1) v(t2)
+print v(t1) v(t2)
+
+.endc
+
+.end
+
